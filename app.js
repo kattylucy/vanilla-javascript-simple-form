@@ -83,9 +83,10 @@ document.querySelector('#book-form').addEventListener('submit', (e) => {
     const isbn = document.querySelector('#isbn').value;
 
     if(title == '' || author == '' || isbn == ''){
-        UI.showAlert('Fields are empty', 'danger')
+        UI.showAlert('Please fill all the fields', 'danger')
     }else{
         const book = new Book(title, author, isbn);
+        UI.showAlert('New book added', 'success')
         UI.addBookToList(book);
     }
   
@@ -98,4 +99,5 @@ document.querySelector('#book-form').addEventListener('submit', (e) => {
 
 document.querySelector('#book-list').addEventListener('click', (e) => {
     UI.deleteBook(e.target);
+    UI.showAlert('Book deleted', 'danger')
 });
